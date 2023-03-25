@@ -2,7 +2,7 @@
   "name": "vite3-vue-demo",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
+    "express": "^4.18.2",
     "vite": "^4.1.0"
   }
 }

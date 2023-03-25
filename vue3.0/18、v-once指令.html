@@ -4,26 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>v-clock指令</title>
+    <title>v-once指令</title>
     <!-- 1、引入开发版的 Vue , 在 window全局就有了Vue 这个构造函数 -->
     <script src="./vue.js"></script>
-    <style>
-      [v-cloak] {
-        display: none;
-      }
-    </style>
   </head>
   <body>
-    <!-- v-cloak指令（没有值）：
-						1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。
-						2.使用css 配合v-cloak 可以解决 网速慢时页面展示出{{xxx}}的问题。 
-
-            当你的网速过慢的时候，v-cloak 指令 可以 不让 未经解析的模板 渲染到页面上
-    -->
-
+    <!-- 
+			v-once指令：
+						1.v-once 所在节点 在初次动态渲染后，就视为静态内容了。
+						2.以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能。
+		-->
+    
     <!--2、准备好一个容器，希望 Vue能够控制下面的这个div,帮我们再把数据填充到 div内部 -->
     <div id="app">
-      <h3 v-cloak>{{name}}</h3>
+      <h3 v-once>初始化的n值是:{{n}}</h3>
+      <span>这里这个初始化的n值一般不会变</span>
+      <h3>当前n的值是: {{n}}</h3>
+      <button @click=" n++">点击一次 n+1</button>
     </div>
 
     <!-- 3、创建 Vue 的实例对象 -->
@@ -35,7 +32,7 @@
 
         // data 对象 就是要渲染到页面上的数据
         data: {
-          name: "walking", //怎么把 name渲染到页面上？
+          n: 1, //怎么把 name渲染到页面上？
         },
       });
     </script>
