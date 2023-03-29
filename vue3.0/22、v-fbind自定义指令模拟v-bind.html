@@ -54,7 +54,7 @@
               console.log(el.parentElement); //  <div>...</div>
               el.focus();
             },
-            // 3、指令 所在模板 被重新解析时。   第3次会自动调用
+            // 3、指令 所在模板 被重新解析时。   (所绑定的DOM对象发生变化时，就自动调用)
             update(el, binding) {
               console.log("updated");
               el.value = binding.value;

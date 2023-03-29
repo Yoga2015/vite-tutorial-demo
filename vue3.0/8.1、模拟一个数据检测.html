@@ -36,6 +36,7 @@
 
         // 遍历
         keys.forEach((k) => {
+          console.log(k);
           Object.defineProperty(this, k, {
             get() {
               return obj[k]; // 这是把 对象中 对应的属性的属性值 return 出去
